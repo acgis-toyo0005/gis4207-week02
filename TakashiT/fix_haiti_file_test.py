@@ -13,16 +13,9 @@ import csv
 import pytest
 import fix_haiti_file as fhf
 
-def test_fix_code_valid_code():
+def test_fix_code_typical_code():
     """Given HT12345-01, expecting HT1245-01"""
     input = "HT12345-01"
-    expected = input
-    actual = fhf._fix_code(input)
-    assert actual == expected
-
-def test_fix_code_invalid_code():
-    """Given HT12245-01, expecting HT1245-01"""
-    input = "HT12245-01"
     expected = "HT1245-01"
     actual = fhf._fix_code(input)
     assert actual == expected

@@ -43,10 +43,7 @@ def process_file():
                 while True:
                     rec = next(in_recs)
                     in_line += 1
-                    fixed_admin_code = _fix_code(rec[0])
-                    if (fixed_admin_code == rec[0]):
-                        print(f"Warning: Fix not required for line {in_line}.")
-                    rec[0] = fixed_admin_code
+                    rec[0] = _fix_code(rec[0])
                     out_recs.writerow(rec)
             except StopIteration:
                 # Presumed end of file
@@ -65,7 +62,4 @@ def _fix_code(admin_code):
     Returns:
         str: admin_code with 5th character removed
     """
-    # Check that the expected error is there, and fix it
-    if (len(admin_code) >= 5 and admin_code[3] == admin_code[4]):
-        admin_code = admin_code[0:3] + admin_code[4:]
-    return admin_code
+    return admin_code[0:4] + admin_code[5:]
