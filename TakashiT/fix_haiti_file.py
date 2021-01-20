@@ -31,7 +31,7 @@ def process_file():
         in_recs = csv.reader(in_file)
         in_line = 0
 
-        with open(out_fixed_csv, 'w') as out_file:
+        with open(out_fixed_csv, 'w', newline="") as out_file:
             out_recs = csv.writer(out_file)
 
             try:
