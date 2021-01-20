@@ -122,3 +122,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+test_Haiti_Admin_Names_Fixed.csv
