@@ -123,4 +123,6 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+test_dupes.csv
+test_falsedupes.csv
 test_Haiti_Admin_Names_Fixed.csv
