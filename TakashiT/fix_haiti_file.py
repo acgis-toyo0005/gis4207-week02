@@ -27,19 +27,22 @@ def process_file():
     Uses in_csv and out_fixed_csv module variables to get filenames
     """
 
+    # Open the broken CSV file
     with open(in_csv) as in_file:
         in_recs = csv.reader(in_file)
         in_line = 0
 
+        # Open the output file to contain the fixed CSV
         with open(out_fixed_csv, 'w', newline="") as out_file:
             out_recs = csv.writer(out_file)
 
             try:
-                # Expect the first line to be header, just copy it
+                # We expect the first line to be header, just copy it
                 rec = next(in_recs)
                 in_line += 1
                 out_recs.writerow(rec)
 
+                # Fix the admin codes in the rest of the file
                 while True:
                     rec = next(in_recs)
                     in_line += 1

@@ -18,13 +18,16 @@ data_dir = "..\\..\\..\\data\\DuplicateData"
 expected_output_dir = "TakashiT\\md5_for_files_test_data"
 
 def compare_csv(filename1, filename2):
+    """Compare the CSV from filename1 and filename2"""
     with open(filename1) as file1:
         with open(filename2) as file2:
+            # Might use lots of memory, but just read both entire files
             csv1 = list(csv.reader(file1))
             csv2 = list(csv.reader(file2))
             assert csv1 == csv2
 
 def test_Duplicates():
+    """Test Duplicates directory"""
     top = os.path.join(data_dir, "Duplicates")
     out_csv = "test_dupes.csv"
     exp_csv = os.path.join(expected_output_dir, "expected_dupes.csv")
@@ -32,6 +35,7 @@ def test_Duplicates():
     compare_csv(out_csv, exp_csv)
 
 def test_FalseDuplicates():
+    """Test FalseDuplicates directory"""
     top = os.path.join(data_dir, "FalseDuplicates")
     out_csv = "test_falsedupes.csv"
     exp_csv = os.path.join(expected_output_dir, "expected_falsedupes.csv")
